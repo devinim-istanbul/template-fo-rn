@@ -1,18 +1,20 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import ServeMe from "./src";
-//import reducers from 'serveme-fo-core';
+
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
+
+import reducers from './src/redux/reducers';
+import HomeScreen from './src/screens/HomeScreen';
+
+const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
 export default class App extends React.Component {
-    render2(){
-        return <View><Text>Test</Text></View>
-    }
-
     render() {
-        //console.log(reducers);
         return (
-            <ServeMe/>
+            <Provider store={store}>
+                <HomeScreen />
+            </Provider>
         );
     }
-
 };
