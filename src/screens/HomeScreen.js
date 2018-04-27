@@ -1,21 +1,32 @@
 import React from 'react';
-import { View, Text, Button, AsyncStorage } from 'react-native';
+import { View, Text, Button, TextInput, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 
-import actions from '../redux/actions';
+import actions from 'src/redux/actions';
 
 class HomeScreen extends React.Component {
 
-    changeUser = () => {
-        this.props.login('secilc', AsyncStorage);
+    state = { user: '' };
+
+    changeUser = (name) => {
+        this.props.login({ name });
+    };
+
+    loadAsyncUser = async() => {
+        const user = await AsyncStorage.getItem('@ServeMe:user') ;
+        console.log(user);
     };
 
     render() {
-        console.log(this.props);
+        const { name } = this.props.user;
+
         return (
             <View style={styles.container}>
-                <Text>User {this.props.user}</Text>
-                <Button title={'Change User'} onPress={this.changeUser} />
+                <TextInput onChangeText={this.changeUser}/>
+                <Text>User: {name}</Text>
+                <Text>Async User: {this.state.user}</Text>
+                <Button title={'Change User'} onPress={() => this.changeUser('dincozdemir')} />
+                <Button title={'Change Async User'} onPress={() => this.loadAsyncUser()} />
             </View>
         )
     }
