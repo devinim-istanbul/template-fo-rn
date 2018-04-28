@@ -1,6 +1,4 @@
 node_modules/
 .idea/
 .expo/
-lib/
-src/redux/
 serveme-fo-core/

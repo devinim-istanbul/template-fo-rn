@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, Text, Button, TextInput, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
+import Modal from 'react-native-modal';
 
-import actions from 'src/redux/actions';
+import actions from '../redux/actions';
 
 class HomeScreen extends React.Component {
 
@@ -27,6 +28,11 @@ class HomeScreen extends React.Component {
                 <Text>Async User: {this.state.user}</Text>
                 <Button title={'Change User'} onPress={() => this.changeUser('dincozdemir')} />
                 <Button title={'Change Async User'} onPress={() => this.loadAsyncUser()} />
+                <Modal>
+                    <View style={{ flex: 1 }}>
+                        <Text>I am the modal content!</Text>
+                    </View>
+                </Modal>
             </View>
         )
     }
