@@ -14,7 +14,7 @@ class HomeScreen extends React.Component {
     };
 
     loadAsyncUser = async() => {
-        const user = await AsyncStorage.getItem('@ServeMe:user') ;
+        const user = await AsyncStorage.getItem('@Template:user') ;
         console.log(user);
     };
 

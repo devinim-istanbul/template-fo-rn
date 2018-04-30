@@ -7,7 +7,7 @@ import ReduxThunk from 'redux-thunk';
 import reducers from './src/redux/reducers';
 import HomeScreen from './src/screens/HomeScreen';
 
-import { configPlatformItems } from './src/config/core';
+import { initialize } from './src/config/core';
 
 const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
@@ -15,7 +15,7 @@ export default class App extends React.Component {
 
     constructor(){
         super();
-        configPlatformItems(AsyncStorage);
+        initialize(AsyncStorage);
     }
 
     render() {

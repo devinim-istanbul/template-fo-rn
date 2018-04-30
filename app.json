@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "serveme-fo-rn",
+    "name": "template-fo-rn",
     "description": "This project is really great.",
-    "slug": "serveme-fo-rn",
+    "slug": "template-fo-rn",
     "privacy": "public",
     "sdkVersion": "26.0.0",
     "platforms": ["ios", "android"],

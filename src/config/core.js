@@ -1,3 +1,3 @@
-import { actions, reducers, configPlatformItems } from 'serveme-fo-core';
+import { actions, reducers, initialize } from 'template-fo-core';
 
-export { actions, reducers, configPlatformItems };
+export { actions, reducers, initialize };
